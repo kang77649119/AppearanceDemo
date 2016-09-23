@@ -17,11 +17,14 @@ class TabBarController: UITabBarController {
 //         UITabBar.appearance().tintColor = UIColor.orange
         
         // 当前类有效
-         UITabBar.appearance(whenContainedInInstancesOf: [TabBarController.classForCoder() as! UIAppearanceContainer.Type]).tintColor = UIColor.orange
+//         UITabBar.appearance(whenContainedInInstancesOf: [TabBarController.classForCoder() as! UIAppearanceContainer.Type]).tintColor = UIColor.orange
         
         // 全局设置文字颜色
-//         let titleStyleDict = [ NSForegroundColorAttributeName : UIColor.orange ]
-//         UITabBarItem.appearance().setTitleTextAttributes(titleStyleDict, for: .selected)
+         let titleStyleDict = [ NSForegroundColorAttributeName : UIColor.orange ]
+         UITabBarItem.appearance().setTitleTextAttributes(titleStyleDict, for: .selected)
+        // ps:字体的设置,必须在普通模式下才会生效
+        let fontDict = [ NSFontAttributeName : UIFont.systemFont(ofSize: 13) ]
+        UITabBarItem.appearance().setTitleTextAttributes(fontDict, for: .normal)
         
         // 初始化UI
         setupUI()
